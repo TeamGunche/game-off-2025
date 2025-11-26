@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import type { KeyboardControlType } from "@/common/defs/keyboardControlMap.ts";
 import { useApp } from "@/store/useAppStore.ts";
 
+// import { GenerateMusic } from "@/common/utils/music/GenerateMusic.tsx";
+// import { playMelody } from "@/common/utils/music/PlayMusic.tsx";
+
 type KeyBindError = {
   action: KeyboardControlType
   message: string
@@ -90,6 +93,8 @@ function Setting() {
     }
   };
 
+  // const test = GenerateMusic(4, 120);
+
   return (
     <Container>
       <MenuBox>
@@ -107,6 +112,8 @@ function Setting() {
               <option value="1200x640">1200x640</option>
             </SettingSelect>
           </SettingRow>
+
+          {/* <button onClick={() => (playMelody("piano", test.mergedEvents, 120))}></button> */}
 
           {/* volume */ }
           <SettingRow>

@@ -3,10 +3,11 @@ import { Html } from "@react-three/drei";
 import { useRefTrait } from "@/common/hooks/ecs/useRefTrait";
 import { BattleViewRef } from "@/common/traits/BattleViewRef";
 import styled from "styled-components";
-import { pressedRunawayInput } from "@/common/systems/pressed/pressedRunawayInput";
-import { useWorld } from "koota/react";
+import { useTrait, useWorld } from "koota/react";
 import { useCallback } from "react";
 import { HealthSystem } from "@/common/systems/health";
+import { BattleTurn } from "@/common/traits/BattleTurn";
+import { BattleSystem } from "@/common/systems/battle";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -36,24 +37,29 @@ const StyledButton = styled.button`
 export default function BattleView({ entity }: { entity: Entity }) {
   const battleViewRef = useRefTrait(entity, BattleViewRef);
   const world = useWorld();
+  const battleTurn = useTrait(entity, BattleTurn);
 
   const handleRunaway = useCallback(() => {
-    pressedRunawayInput(world);
+    BattleSystem.from(world).end();
   }, [world]);
 
   const handleAttack = useCallback(() => {
-    HealthSystem.from(world).damage(10);
+    BattleSystem.from(world).attack();
   }, [world]);
+
+  if (!battleTurn) return <></>;
 
   return (
     <group ref={battleViewRef}>
       <Html fullscreen>
-        <StyledRootContainer>
-          <StyledButtonContainer>
-            <StyledButton onClick={handleAttack}>Attack</StyledButton>
-            <StyledButton onClick={handleRunaway}>Runaway</StyledButton>
-          </StyledButtonContainer>
-        </StyledRootContainer>
+        {battleTurn.turn === "idle" && (
+          <StyledRootContainer>
+            <StyledButtonContainer>
+              <StyledButton onClick={handleAttack}>Attack</StyledButton>
+              <StyledButton onClick={handleRunaway}>Runaway</StyledButton>
+            </StyledButtonContainer>
+          </StyledRootContainer>
+        )}
       </Html>
     </group>
   );

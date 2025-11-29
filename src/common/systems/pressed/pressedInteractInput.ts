@@ -1,5 +1,4 @@
 import { InteractLine } from "@/common/traits/InteractLine";
-import { IsBattle } from "@/common/traits/IsBattle.ts";
 import { IsEnemy } from "@/common/traits/IsEnemy.ts";
 import { IsInteracting } from "@/common/traits/IsInteracting.ts";
 import { IsInteractionFocused } from "@/common/traits/IsInteractionFocused.ts";
@@ -7,8 +6,7 @@ import { world } from "@/common/world.ts";
 import { IsChat } from "@/common/traits/IsChat.ts";
 import { Not } from "koota";
 import { IsNPC } from "@/common/traits/IsNPC.ts";
-import { HealthPoint } from "@/common/traits/HealthPoint";
-import { HealthSystem } from "@/common/systems/health";
+import { BattleSystem } from "@/common/systems/battle";
 
 export const pressedInteractInput = () => {
   world.query(IsInteractionFocused, Not(IsInteracting)).updateEach((_, entity) => {
@@ -39,8 +37,7 @@ export const pressedInteractInput = () => {
         entity.remove(IsInteracting);
       }
       if (entity.has(IsEnemy)) {
-        entity.add(HealthPoint);
-        entity.add(IsBattle);
+        BattleSystem.from(world).start();
       }
       return;
     }
@@ -49,6 +46,4 @@ export const pressedInteractInput = () => {
     line.animIndex = 0;
     line.animDelta = 0;
   });
-
-  HealthSystem.from(world).init();
 };

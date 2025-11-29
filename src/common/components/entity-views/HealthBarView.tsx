@@ -4,7 +4,6 @@ import { HealthPoint } from "@/common/traits/HealthPoint";
 import { Html } from "@react-three/drei";
 import type { Entity } from "koota";
 import { useTrait } from "koota/react";
-import { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledHealthBarContainer = styled.div`
@@ -24,10 +23,6 @@ export default function HealthBarView({ entity }: { entity: Entity }) {
   const healthPoint = useTrait(entity, HealthPoint);
 
   if (!healthPoint) return <></>;
-
-  useEffect(() => {
-    console.log(healthPoint);
-  }, [healthPoint]);
 
   return (
     <group ref={healthBarViewRef}>

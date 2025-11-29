@@ -2,7 +2,6 @@ import { HealthPoint } from "@/common/traits/HealthPoint";
 import { IsBattle } from "@/common/traits/IsBattle";
 import { clamp } from "es-toolkit";
 import type { World } from "koota";
-import { IsInteracting } from "../traits/IsInteracting";
 
 export class HealthSystem {
   private _world: World;
@@ -23,13 +22,8 @@ export class HealthSystem {
   }
 
   public damage(value: number) {
-    this._world.query(IsBattle, HealthPoint).updateEach(([healthPoint], entity) => {
+    this._world.query(IsBattle, HealthPoint).updateEach(([healthPoint]) => {
       healthPoint.health = clamp(healthPoint.health - value, 0, this.MAX_HEALTH);
-
-      if (healthPoint.health <= 0) {
-        entity.remove(IsInteracting);
-        entity.remove(IsBattle);
-      }
     });
   }
 

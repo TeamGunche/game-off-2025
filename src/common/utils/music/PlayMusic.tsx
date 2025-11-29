@@ -2,6 +2,7 @@ import { Snare } from "@/common/sound-engines/snare.ts";
 import { HiHat } from "@/common/sound-engines/hat.ts";
 import { Kick } from "@/common/sound-engines/kick.ts";
 import { Bottle } from "@/common/sound-engines/bottle.ts";
+import { Click } from "@/common/sound-engines/click.ts";
 
 export const playMelody = (bpm: number) => {
   const ctx = new AudioContext();
@@ -12,6 +13,7 @@ export const playMelody = (bpm: number) => {
   const snare = new Snare(ctx);
   const hihat = new HiHat(ctx);
   const bottle = new Bottle(ctx);
+  const click = new Click(ctx);
 
   // 킥: 1, 5, 9, 13 비트
   [0, 2, 4, 6].forEach((beat) => {
@@ -28,8 +30,13 @@ export const playMelody = (bpm: number) => {
     hihat.trigger(startTime + beat * beatDuration);
   });
 
-  // 트라이앵글: 액센트 비트
+  // 병: 액센트 비트
   [0, 4].forEach((beat) => {
     bottle.trigger(startTime + beat * beatDuration);
+  });
+
+  // 클릭: 오프비트 액센트
+  [1.5, 3.5, 5.5, 7.5].forEach((beat) => {
+    click.trigger(startTime + beat * beatDuration);
   });
 };

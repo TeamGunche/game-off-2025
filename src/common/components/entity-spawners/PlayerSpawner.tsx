@@ -30,7 +30,7 @@ export default function PlayerSpawner(props: EntityRendererProps) {
   const { rapier, world: rapierWorld } = useRapier();
   const collider = useCreateCollider({
     startPosition: startPosition.clone(),
-    colliderDesc: rapier.ColliderDesc.cuboid(0.8, 1)
+    colliderDesc: rapier.ColliderDesc.cuboid(0.2, 1)
       .setCollisionGroups(INTERACTION_GROUPS.CHARACTER),
   });
 

@@ -1,42 +1,35 @@
-import Wad from "web-audio-daw";
+import { Snare } from "@/common/sound-engines/snare.ts";
+import { HiHat } from "@/common/sound-engines/hat.ts";
+import { Kick } from "@/common/sound-engines/kick.ts";
+import { Bottle } from "@/common/sound-engines/bottle.ts";
 
-interface Note {
-  pos: number
-  pitches: number[]
-  len: number
-}
+export const playMelody = (bpm: number) => {
+  const ctx = new AudioContext();
+  const beatDuration = 60 / bpm; // 0.5초
+  const startTime = ctx.currentTime;
 
-export const playMelody = (instrument: string, data: Note[], bpm: number) => {
-  const instrumentUrls: { [key: string]: string } = {
-    piano: "https://tonejs.github.io/audio/salamander/C4.mp3",
-    guitar: "https://tonejs.github.io/audio/salamander/C4.mp3",
-    harp: "https://tonejs.github.io/audio/salamander/C4.mp3",
-  };
+  const bass = new Kick(ctx);
+  const snare = new Snare(ctx);
+  const hihat = new HiHat(ctx);
+  const bottle = new Bottle(ctx);
 
-  const source = instrumentUrls[instrument] || instrumentUrls["piano"];
-  const stepTime = 60 / bpm / 4;
+  // 킥: 1, 5, 9, 13 비트
+  [0, 2, 4, 6].forEach((beat) => {
+    bass.trigger(startTime + beat * beatDuration);
+  });
 
-  console.log("Melody scheduled...");
+  // 스네어: 5, 13 비트
+  [2, 6].forEach((beat) => {
+    snare.trigger(startTime + beat * beatDuration);
+  });
 
-  data.forEach((note) => {
-    setTimeout(() => {
-      note.pitches.forEach((ratio) => {
-        const voice = new Wad({ source: source });
+  // 하이햇: 모든 8분음표
+  [0.5, 1, 1.2, 1.4, 1.6, 1.8, 2, 3, 4, 5, 6, 7].forEach((beat) => {
+    hihat.trigger(startTime + beat * beatDuration);
+  });
 
-        const detune = 1200 * Math.log2(ratio);
-
-        voice.play({
-          detune: detune,
-
-          env: {
-            attack: 0.05,
-            decay: 0.1,
-            sustain: 0.9,
-            hold: note.len * stepTime,
-            release: 0.2,
-          },
-        } as never);
-      });
-    }, (note.pos * stepTime) * 1000);
+  // 트라이앵글: 액센트 비트
+  [0, 4].forEach((beat) => {
+    bottle.trigger(startTime + beat * beatDuration);
   });
 };

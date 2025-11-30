@@ -20,7 +20,7 @@ import { IsPlayer } from "@/common/traits/IsPlayer.ts";
 import { IsRhythm } from "@/common/traits/IsRhythm";
 import { type Entity, Not, type QueryParameter } from "koota";
 import { useQuery } from "koota/react";
-import { Fragment, type ReactNode } from "react";
+import { Fragment, memo, type ReactNode } from "react";
 import { useUnmount } from "react-use";
 import { RhythmNote } from "@/common/traits/RhythmNote.ts";
 import RhythmNoteView from "@/common/components/entity-views/RhythmNoteView.tsx";
@@ -41,14 +41,14 @@ export default function EntityRenderers() {
   );
 }
 
-export const OffscreenEntityRenderers = () => {
+export const OffscreenEntityRenderers = memo(() => {
   return (
     <>
       <EntityRenderer params={[IsInteracting, IsBattle, IsRhythm]} view={RhythmView} />
       <EntityRenderer params={[RhythmNote]} view={RhythmNoteView} />
     </>
   );
-};
+});
 
 export const EntityRenderer = <T extends QueryParameter[]>({
   params,

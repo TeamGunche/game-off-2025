@@ -17,6 +17,13 @@ import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import { useKeyPressEvent, useMeasure } from "react-use";
 import styled from "styled-components";
+import { IsInteracting } from "@/common/traits/IsInteracting.ts";
+import { IsBattle } from "@/common/traits/IsBattle.ts";
+import { IsRhythm } from "@/common/traits/IsRhythm.ts";
+import RhythmView from "@/common/components/entity-views/RhythmView.tsx";
+import { RhythmNote } from "@/common/traits/RhythmNote.ts";
+import RhythmNoteView from "@/common/components/entity-views/RhythmNoteView.tsx";
+import { EntityRenderer, OffscreenEntityRenderers } from "@/common/components/entity-renderers/EntityRenderers.tsx";
 
 const RENDER_HEIGHT = PPU * CAM_SIZE * 2;
 const DEV_VIEWS = ["game", "tileset-editor"] as const;
@@ -35,7 +42,7 @@ function App() {
 
   const [ref, { height }] = useMeasure<HTMLCanvasElement>();
   const isDev = window.api?.isDev();
-  const { view } = useControls({ view: { value: "game" as DevView, options: DEV_VIEWS } });
+  const { view, debugPhysics } = useControls({ view: { value: "game" as DevView, options: DEV_VIEWS }, debugPhysics: false });
   const devView = view as DevView;
 
   useKeyPressEvent("Escape", () => {
@@ -62,6 +69,7 @@ function App() {
 
         {(gameState === "play" || (gameState === "setting" && previousGameState === "play")) && (
           <GameContainer visible={gameState === "play"}>
+            <OffscreenEntityRenderers />
             <Leva hidden={!window.electron || !isDev} />
             <Canvas
               gl={{ antialias: false, powerPreference: "high-performance" }}
@@ -85,7 +93,7 @@ function App() {
                 <Physics
                   timeStep={physicsSettings.timestep}
                   gravity={{ x: 0, y: physicsSettings.gravity }}
-                  debug={isDev}
+                  debug={isDev && debugPhysics}
                 >
                   <KeyboardControls map={activeKeymap}>
                     {

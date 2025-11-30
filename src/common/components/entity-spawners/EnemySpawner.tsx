@@ -19,6 +19,7 @@ import { IdleAnim } from "@/common/traits/IdleAnim.ts";
 import { BattleStartAnim } from "@/common/traits/BattleStartAnim.ts";
 import { MoveInput } from "@/common/traits/MoveInput.ts";
 import { RhythmInput } from "@/common/traits/RhythmInput.ts";
+import { RhythmAnims, type RhythmAnimTuple } from "@/common/traits/RhythmAnims.ts";
 
 export default function EnemySpawner(props: EntityRendererProps) {
   const { ldtkDir } = useLdtkLevelContext();
@@ -32,6 +33,8 @@ export default function EnemySpawner(props: EntityRendererProps) {
     IdleLength,
     BattleStart,
     BattleStartLength,
+    Rhythm,
+    RhythmLengths,
     SensorWidth,
     SensorHeight,
     Lines,
@@ -40,6 +43,8 @@ export default function EnemySpawner(props: EntityRendererProps) {
     IdleLength: number
     BattleStart: string
     BattleStartLength: number
+    Rhythm: string[]
+    RhythmLengths: number[]
     SensorWidth: number
     SensorHeight: number
     Lines: string[]
@@ -75,6 +80,12 @@ export default function EnemySpawner(props: EntityRendererProps) {
         path: `${ldtkDir}${BattleStart.trim()}`,
         length: BattleStartLength,
       }),
+      RhythmAnims(
+        ([1, 2, 3, 4, 5, 6, 7, 8] as const).map(num => ({
+          path: `${ldtkDir}${Rhythm[num - 1].trim()}`,
+          length: RhythmLengths[num - 1],
+        })) as RhythmAnimTuple,
+      ),
     );
   }, [sensor]);
 

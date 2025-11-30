@@ -5,6 +5,6 @@ import type { World } from "koota";
 
 export const pressedAttackInput = (world: World) => {
   world.query(IsInteracting, IsBattle).updateEach((_, entity) => {
-    entity.add(IsRhythm);
+    entity.add(IsRhythm({ phase: "attack" }));
   });
 };

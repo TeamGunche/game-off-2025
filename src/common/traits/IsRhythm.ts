@@ -1,3 +1,7 @@
 import { trait } from "koota";
 
-export const IsRhythm = trait();
+export type RhythmPhase = "attack" | "defense";
+
+export const IsRhythm = trait({
+  phase: "attack" as RhythmPhase,
+});

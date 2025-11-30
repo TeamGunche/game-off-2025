@@ -32,7 +32,7 @@ const Lane = styled.div`
 
 const HitArea = styled.div<{ $active: boolean }>`
   width: 100%;
-  height: 64px;
+  height: 10%;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.5);
 

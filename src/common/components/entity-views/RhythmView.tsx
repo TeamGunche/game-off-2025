@@ -2,7 +2,10 @@ import { useRefTrait } from "@/common/hooks/ecs/useRefTrait";
 import { RhythmViewRef } from "@/common/traits/RhythmViewRef";
 import { Html } from "@react-three/drei";
 import type { Entity } from "koota";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useTraitEffect } from "koota/react";
+import { RhythmInput } from "@/common/traits/RhythmInput.ts";
+import { useState } from "react";
 
 const Container = styled.div`
   position: absolute;
@@ -28,32 +31,42 @@ const Lane = styled.div`
   border-radius: 8px;
 `;
 
-const HitArea = styled.div`
+const HitArea = styled.div<{ $active: boolean }>`
   width: 100%;
   height: 64px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
+
+  ${({ $active }) => $active && css`
+    background-color: rgba(255, 255, 255, 1);
+  `}
 `;
 
-export default function RhythmView({ entity }: { entity: Entity }) {
+export default function RhythmView({ entity}: { entity: Entity }) {
   const rhythmViewRef = useRefTrait(entity, RhythmViewRef);
+  const [activeInputs, setActiveInputs] = useState([false, false, false, false]);
+  useTraitEffect(entity, RhythmInput, (input) => {
+    setActiveInputs((prev) => {
+      const newState = [...prev];
+      for (let i = 0; i < 4; i++) {
+        newState[i] = input![i];
+      }
+      return newState;
+    });
+  });
 
   return (
     <group ref={rhythmViewRef}>
       <Html fullscreen>
         <Container>
-          <Lane>
-            <HitArea />
-          </Lane>
-          <Lane>
-            <HitArea />
-          </Lane>
-          <Lane>
-            <HitArea />
-          </Lane>
-          <Lane>
-            <HitArea />
-          </Lane>
+          {[0, 1, 2, 3].map((num) => {
+            const isActive = activeInputs[num];
+            return (
+              <Lane key={num}>
+                <HitArea $active={isActive} />
+              </Lane>
+            );
+          })}
         </Container>
       </Html>
     </group>

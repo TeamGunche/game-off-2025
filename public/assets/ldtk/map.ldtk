@@ -48,7 +48,7 @@
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
 	"customCommands": [],
-	"flags": [],
+	"flags": ["IgnoreBackupSuggest"],
 	"defs": { "layers": [
 		{
 			"__type": "Entities",
@@ -5135,6 +5135,74 @@
 							],
 							"__worldX": 800,
 							"__worldY": -64
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [15,15],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "07246aa0-ac70-11f0-833b-47274fd0533c",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [254,240],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_girl", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_girl"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": [
+									"Another dance battle announcement… our school seriously treats dancing like a mandatory subject."
+								], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": [
+										"Another dance battle announcement… our school seriously treats dancing like a mandatory subject."
+									]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc1_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc1_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 894,
+							"__worldY": -64
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [17,14],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "190941f0-ac70-11f0-833b-f540b2e599eb",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [286,239],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_boy", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_boy"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Yeah. Same wave as always."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Yeah. Same wave as always."]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc4_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc4_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 926,
+							"__worldY": -65
 						}
 					]
 				},
@@ -6385,6 +6453,70 @@
 								}] }
 							],
 							"__worldX": 1453,
+							"__worldY": -64
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [10,15],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "4b188110-ac70-11f0-833b-5d2ac9c11faf",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [166,241],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_girl2", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_girl2"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Careful—someone did a spin here earlier and almost died."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Careful—someone did a spin here earlier and almost died."]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc3_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc3_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1222,
+							"__worldY": -63
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [23,15],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "5c1394a0-ac70-11f0-833b-271fdccac945",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [371,240],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_man", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_man"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Go get ’em! …But don’t tell anyone I said that."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Go get ’em! …But don’t tell anyone I said that."]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc5_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc5_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1427,
 							"__worldY": -64
 						}
 					]
@@ -8711,7 +8843,37 @@
 					"seed": 4532532,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
-					"entityInstances": []
+					"entityInstances": [
+						{
+							"__identifier": "NPC",
+							"__grid": [6,19],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "8001e240-ac70-11f0-833b-6f70d1375f93",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [106,307],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_yeah", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_yeah"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": [], "__tile": null, "defUid": 69, "realEditorValues": [] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc2_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc2_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1962,
+							"__worldY": -253
+						}
+					]
 				},
 				{
 					"__identifier": "Stair_cover",
@@ -10287,7 +10449,37 @@
 					"seed": 7237510,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
-					"entityInstances": []
+					"entityInstances": [
+						{
+							"__identifier": "NPC",
+							"__grid": [4,12],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "976a02a0-ac70-11f0-833b-1b5a006ca05b",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [70,192],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_Dance", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_Dance"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": [], "__tile": null, "defUid": 69, "realEditorValues": [] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc4_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc4_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1670,
+							"__worldY": -368
+						}
+					]
 				},
 				{
 					"__identifier": "Stair_cover",
@@ -11080,6 +11272,70 @@
 								}] }
 							],
 							"__worldX": 1499,
+							"__worldY": -367
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [18,12],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "af767950-ac70-11f0-833b-b599ec82bb67",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [299,194],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_oh", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_oh"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["If someone dances in the hallway again, I’m transferring."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["If someone dances in the hallway again, I’m transferring."]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc1_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc1_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1355,
+							"__worldY": -366
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [4,12],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "c4790b60-ac70-11f0-833b-5f12ec9e7b8a",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [69,193],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_ohh", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_ohh"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc1_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc1_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1125,
 							"__worldY": -367
 						}
 					]
@@ -14549,6 +14805,38 @@
 							],
 							"__worldX": 1548,
 							"__worldY": -609
+						},
+						{
+							"__identifier": "NPC",
+							"__grid": [5,12],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "d61abf30-ac70-11f0-833b-c350c3ce7425",
+							"width": 16,
+							"height": 16,
+							"defUid": 46,
+							"px": [85,192],
+							"fieldInstances": [
+								{ "__identifier": "Name", "__type": "String", "__value": "NPC_sad", "__tile": null, "defUid": 47, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["NPC_sad"]
+								}] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Why is everyone battling today? Did I miss a memo?"], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Why is everyone battling today? Did I miss a memo?"]
+								}] },
+								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc3_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/npc/npc3_idle.png"]
+								}] },
+								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 71, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
+								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 0, "__tile": null, "defUid": 56, "realEditorValues": [] },
+								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 0, "__tile": null, "defUid": 57, "realEditorValues": [] }
+							],
+							"__worldX": 1141,
+							"__worldY": -608
 						}
 					]
 				},

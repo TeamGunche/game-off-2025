@@ -41,7 +41,7 @@ const HitArea = styled.div<{ $active: boolean }>`
   `}
 `;
 
-export default function RhythmView({ entity}: { entity: Entity }) {
+export default function RhythmTurnView({ entity}: { entity: Entity }) {
   const [activeInputs, setActiveInputs] = useState([false, false, false, false]);
   useTraitEffect(entity, RhythmInput, (input) => {
     setActiveInputs((prev) => {

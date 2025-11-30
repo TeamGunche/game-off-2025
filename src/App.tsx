@@ -17,13 +17,7 @@ import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import { useKeyPressEvent, useMeasure } from "react-use";
 import styled from "styled-components";
-import { IsInteracting } from "@/common/traits/IsInteracting.ts";
-import { IsBattle } from "@/common/traits/IsBattle.ts";
-import { IsRhythm } from "@/common/traits/IsRhythm.ts";
-import RhythmView from "@/common/components/entity-views/RhythmView.tsx";
-import { RhythmNote } from "@/common/traits/RhythmNote.ts";
-import RhythmNoteView from "@/common/components/entity-views/RhythmNoteView.tsx";
-import { EntityRenderer, OffscreenEntityRenderers } from "@/common/components/entity-renderers/EntityRenderers.tsx";
+import { OffscreenEntityRenderers } from "@/common/components/entity-renderers/EntityRenderers.tsx";
 
 const RENDER_HEIGHT = PPU * CAM_SIZE * 2;
 const DEV_VIEWS = ["game", "tileset-editor"] as const;

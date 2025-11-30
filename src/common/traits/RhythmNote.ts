@@ -5,4 +5,6 @@ export const RhythmNote = trait({
   position: 0 as number,
   type: "short" as "short" | "long",
   length: 0.05 as number,
+  held: false as boolean,
+  hit: false as boolean,
 });

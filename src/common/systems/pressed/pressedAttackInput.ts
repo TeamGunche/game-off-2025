@@ -1,6 +1,6 @@
 import { IsBattle } from "@/common/traits/IsBattle";
 import { IsInteracting } from "@/common/traits/IsInteracting";
-import { IsRhythm } from "@/common/traits/IsRhythm";
+import { RhythmTurn } from "@/common/traits/RhythmTurn.ts";
 import type { World } from "koota";
 import { RhythmSheet } from "@/common/traits/RhythmSheet.ts";
 import { getSafePath } from "@/common/utils/electronUtils.ts";
@@ -12,9 +12,9 @@ import { scrollTime } from "@/common/defs/scrollTime.ts";
 const startOffset = 2; // seconds
 
 export const pressedAttackInput = (world: World) => {
-  world.query(IsInteracting, IsBattle).updateEach((_, entity) => {
-    entity.add(IsRhythm({ phase: "attack" }), RhythmSheet());
-    spawnNotes();
+  world.query(IsInteracting, IsBattle).updateEach(async (_, entity) => {
+    const notesLength = await spawnNotes();
+    entity.add(RhythmTurn({ phase: "attack", total: notesLength }), RhythmSheet);
   });
 };
 
@@ -28,4 +28,5 @@ const spawnNotes = async () => {
       length: n.type === "short" ? 0.05 : (n.endTime - n.time) / (1000 * scrollTime) + 0.05,
     }));
   });
+  return sheet.notes.length;
 };

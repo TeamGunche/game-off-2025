@@ -6,7 +6,7 @@ import InteractionHintView from "@/common/components/entity-views/InteractionHin
 import { InteractionLineView } from "@/common/components/entity-views/InteractionLineView";
 import NPCView from "@/common/components/entity-views/NPCView.tsx";
 import PlayerView from "@/common/components/entity-views/PlayerView.tsx";
-import RhythmView from "@/common/components/entity-views/RhythmView";
+import RhythmTurnView from "@/common/components/entity-views/RhythmTurnView.tsx";
 import { HealthPoint } from "@/common/traits/HealthPoint";
 import { InteractLine } from "@/common/traits/InteractLine";
 import { IsBattle } from "@/common/traits/IsBattle";
@@ -17,7 +17,7 @@ import { IsInteracting } from "@/common/traits/IsInteracting.ts";
 import { IsInteractionFocused } from "@/common/traits/IsInteractionFocused";
 import { IsNPC } from "@/common/traits/IsNPC.ts";
 import { IsPlayer } from "@/common/traits/IsPlayer.ts";
-import { IsRhythm } from "@/common/traits/IsRhythm";
+import { RhythmTurn } from "@/common/traits/RhythmTurn.ts";
 import { type Entity, Not, type QueryParameter } from "koota";
 import { useQuery } from "koota/react";
 import { Fragment, memo, type ReactNode } from "react";
@@ -35,7 +35,7 @@ export default function EntityRenderers() {
       <EntityRenderer params={[IsEnemy]} view={EnemyView} />
       <EntityRenderer params={[IsInteractionFocused, Not(IsInteracting)]} view={InteractionHintView} />
       <EntityRenderer params={[IsInteracting, IsChat, InteractLine]} view={InteractionLineView} />
-      <EntityRenderer params={[IsInteracting, IsBattle, Not(IsRhythm)]} view={BattleView} />
+      <EntityRenderer params={[IsInteracting, IsBattle, Not(RhythmTurn)]} view={BattleView} />
       <EntityRenderer params={[IsInteracting, IsBattle, HealthPoint]} view={HealthBarView} />
     </>
   );
@@ -44,7 +44,7 @@ export default function EntityRenderers() {
 export const OffscreenEntityRenderers = memo(() => {
   return (
     <>
-      <EntityRenderer params={[IsInteracting, IsBattle, IsRhythm]} view={RhythmView} />
+      <EntityRenderer params={[IsInteracting, IsBattle, RhythmTurn]} view={RhythmTurnView} />
       <EntityRenderer params={[RhythmNote]} view={RhythmNoteView} />
     </>
   );

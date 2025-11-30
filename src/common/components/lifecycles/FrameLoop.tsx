@@ -25,6 +25,7 @@ import { useWorld } from "koota/react";
 import { playRhythmAnim } from "@/common/systems/play/playRhythmAnim.ts";
 import { scrollNotes } from "@/common/systems/scrollNotes.ts";
 import { updateNoteViews } from "@/common/systems/updateNoteViews.ts";
+import { endRhythm } from "@/common/systems/endRhythm.ts";
 
 export default function FrameLoop() {
   const world = useWorld();
@@ -62,6 +63,7 @@ export default function FrameLoop() {
 
     scrollNotes(delta);
     updateNoteViews();
+    endRhythm();
   });
 
   return <></>;

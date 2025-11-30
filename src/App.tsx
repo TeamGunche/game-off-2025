@@ -17,7 +17,7 @@ import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import { useKeyPressEvent, useMeasure } from "react-use";
 import styled from "styled-components";
-import { OffscreenEntityRenderers } from "@/common/components/entity-renderers/EntityRenderers.tsx";
+import { OverlayEntityRenderers } from "@/common/components/entity-renderers/EntityRenderers.tsx";
 
 const RENDER_HEIGHT = PPU * CAM_SIZE * 2;
 const DEV_VIEWS = ["game", "tileset-editor"] as const;
@@ -63,7 +63,6 @@ function App() {
 
         {(gameState === "play" || (gameState === "setting" && previousGameState === "play")) && (
           <GameContainer visible={gameState === "play"}>
-            <OffscreenEntityRenderers />
             <Leva hidden={!window.electron || !isDev} />
             <Canvas
               gl={{ antialias: false, powerPreference: "high-performance" }}
@@ -101,6 +100,7 @@ function App() {
                 </Physics>
               </Suspense>
             </Canvas>
+            <OverlayEntityRenderers />
             <PauseModal />
           </GameContainer>
         )}

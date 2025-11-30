@@ -41,12 +41,18 @@ export default function EntityRenderers() {
   );
 }
 
-export const OffscreenEntityRenderers = memo(() => {
+export const OverlayEntityRenderers = memo(() => {
   return (
-    <>
+    <div style={{
+      position: "absolute",
+      inset: 0,
+      pointerEvents: "none",
+      zIndex: 9999999999,
+    }}
+    >
       <EntityRenderer params={[IsInteracting, IsBattle, RhythmTurn]} view={RhythmTurnView} />
       <EntityRenderer params={[RhythmNote]} view={RhythmNoteView} />
-    </>
+    </div>
   );
 });
 

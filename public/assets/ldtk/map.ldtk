@@ -14603,7 +14603,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Enemy",
-							"__grid": [12,11],
+							"__grid": [17,11],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -14612,7 +14612,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 50,
-							"px": [204,191],
+							"px": [284,191],
 							"fieldInstances": [
 								{ "__identifier": "Name", "__type": "String", "__value": "Rudolf Girl", "__tile": null, "defUid": 51, "realEditorValues": [{
 									"id": "V_String",
@@ -14683,7 +14683,7 @@
 								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 1, "__tile": null, "defUid": 58, "realEditorValues": [{ "id": "V_Float", "params": [1] }] },
 								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 1, "__tile": null, "defUid": 59, "realEditorValues": [{ "id": "V_Float", "params": [1] }] }
 							],
-							"__worldX": 1260,
+							"__worldX": 1340,
 							"__worldY": -609
 						}
 					]

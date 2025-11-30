@@ -27,13 +27,13 @@ import { useUnmount } from "react-use";
 export default function EntityRenderers() {
   return (
     <>
+      <EntityRenderer params={[IsCamera]} view={CameraView} />
       <EntityRenderer params={[IsPlayer]} view={PlayerView} />
       <EntityRenderer params={[IsNPC]} view={NPCView} />
       <EntityRenderer params={[IsEnemy]} view={EnemyView} />
       <EntityRenderer params={[IsInteractionFocused, Not(IsInteracting)]} view={InteractionHintView} />
       <EntityRenderer params={[IsInteracting, IsChat, InteractLine]} view={InteractionLineView} />
-      <EntityRenderer params={[IsCamera]} view={CameraView} />
-      <EntityRenderer params={[IsInteracting, IsBattle]} view={BattleView} />
+      <EntityRenderer params={[IsInteracting, IsBattle, Not(IsRhythm)]} view={BattleView} />
       <EntityRenderer params={[IsInteracting, IsBattle, HealthPoint]} view={HealthBarView} />
       <EntityRenderer params={[IsInteracting, IsBattle, IsRhythm]} view={RhythmView} />
     </>

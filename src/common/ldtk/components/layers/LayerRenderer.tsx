@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo } from "react";
+import { createContext, memo, useContext, useMemo } from "react";
 import type { LayerInstance, TilesetDefinition } from "@/common/ldtk/models/LdtkTypes.ts";
 import TilesLayerRenderer from "@/common/ldtk/components/layers/TilesLayerRenderer.tsx";
 import { getTilesetByUid } from "@/common/ldtk/utils/tilesetUtils.ts";
@@ -8,7 +8,7 @@ import * as THREE from "three";
 import IntGridLayerRenderer from "@/common/ldtk/components/layers/IntGridLayerRenderer.tsx";
 import { getTexture } from "@/common/utils/textureUtils.ts";
 
-export default function LayerRenderer(
+export default memo(function LayerRenderer(
   {
     layer,
     index,
@@ -42,7 +42,7 @@ export default function LayerRenderer(
       {layer.__type === "Entities" && <EntitiesLayerRenderer />}
     </LdtkLayerContext>
   );
-};
+});
 
 export const LdtkLayerContext = createContext<{
   layer: LayerInstance

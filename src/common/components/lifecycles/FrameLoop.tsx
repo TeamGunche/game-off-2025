@@ -31,23 +31,6 @@ export default function FrameLoop() {
   const [, getInput] = useKeyboardControls<KeyboardControlType>();
 
   useFrame((_, delta) => {
-    // TODO: Devtools
-    // console.log(world.query().map(entity => {
-    //     var traits = Array.from(world.traits).map(tr => {
-    //         if (entity.has(tr)) {
-    //             return {name: tr.name, data: entity.get(tr)}
-    //         }
-    //     })
-    //     return { id: entity.id, traits: traits.filter(Boolean) }
-    // }))
-    // TODO: GPU Info
-    // const ctx = gl.getContext();
-    // const debugInfo = ctx.getExtension('WEBGL_debug_renderer_info');
-    // if (debugInfo) {
-    //     const renderer = ctx.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-    //     console.log('Active GPU:', renderer);
-    // }
-
     const input = getInput();
 
     updateElapsedTime(world, delta);

@@ -17,7 +17,7 @@ export const pressedAttackInput = (world: World) => {
 };
 
 const spawnNotes = async () => {
-  const sheet = await fetch(getSafePath("/assets/sheets/dkbk.json")).then(res => res.json()) as MusicSheet;
+  const sheet = await fetch(getSafePath("/assets/sheets/bracket.json")).then(res => res.json()) as MusicSheet;
   sheet.notes.forEach((n) => {
     world.spawn(RhythmNote({
       type: n.type,

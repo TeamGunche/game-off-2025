@@ -38,14 +38,16 @@ export default function LdtkMap(
 
   return levels.map((level) => {
     return (
-      <LdtkLevelContext value={{
-        ldtk,
-        level,
-        ldtkPath,
-        ldtkDir: ldtkPath.substring(0, ldtkPath.lastIndexOf("/")) + "/",
-        entityRendererMap,
-        tileRendererMap,
-      }}
+      <LdtkLevelContext
+        key={level.iid}
+        value={{
+          ldtk,
+          level,
+          ldtkPath,
+          ldtkDir: ldtkPath.substring(0, ldtkPath.lastIndexOf("/")) + "/",
+          entityRendererMap,
+          tileRendererMap,
+        }}
       >
         <group>
           {(level.layerInstances ?? []).map((layer, index) => {

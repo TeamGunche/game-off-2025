@@ -1,27 +1,28 @@
 import type { KeyboardControlType } from "@/common/defs/keyboardControlMap.ts";
 import { addJumpBuffer } from "@/common/systems/addJumpBuffer.ts";
 import { applyCharacterInputToVelocity } from "@/common/systems/applyCharacterInputToVelocity.ts";
+import { applyFacingDirection } from "@/common/systems/applyFacingDirection.ts";
 import { applySpriteAnim } from "@/common/systems/applySpriteAnim.ts";
 import { doJump } from "@/common/systems/doJump.ts";
 import { freeJumpBuffer } from "@/common/systems/freeJumpBuffer.ts";
+import { playBattleStartAnim } from "@/common/systems/playBattleStartAnim.ts";
+import { playIdleAnim } from "@/common/systems/playIdleAnim.ts";
+import { playWalkAnim } from "@/common/systems/playWalkAnim.ts";
 import pollPlayerInput from "@/common/systems/pollPlayerInput.ts";
+import { syncCameraAndBattleView } from "@/common/systems/syncCameraAndBattleView";
+import { syncCameraAndRhythmView } from "@/common/systems/syncCameraAndRhythmView";
 import { syncControllerAndVisualPosition } from "@/common/systems/syncControllerAndVisualPosition.ts";
+import { syncHealthBarView } from "@/common/systems/syncHealthBarView";
 import { syncVisualPositionAndMesh } from "@/common/systems/syncVisualPositionAndMesh.ts";
 import { tickSpriteAnim } from "@/common/systems/tickSpriteAnim.ts";
 import { updateElapsedTime } from "@/common/systems/updateElapsedTime.ts";
+import { updateFacingDirection } from "@/common/systems/updateFacingDirection.ts";
 import { updateInteractionCamera } from "@/common/systems/updateInteractionCamera.ts";
+import { updateInteractionMoveInput } from "@/common/systems/updateInteractionMoveInput.ts";
 import { updateInteractLineAnimation } from "@/common/systems/updateInteractLineAnimation.ts";
 import { useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useWorld } from "koota/react";
-import { updateInteractionMoveInput } from "@/common/systems/updateInteractionMoveInput.ts";
-import { applyFacingDirection } from "@/common/systems/applyFacingDirection.ts";
-import { playIdleAnim } from "@/common/systems/playIdleAnim.ts";
-import { playWalkAnim } from "@/common/systems/playWalkAnim.ts";
-import { playBattleStartAnim } from "@/common/systems/playBattleStartAnim.ts";
-import { updateFacingDirection } from "@/common/systems/updateFacingDirection.ts";
-import { syncCameraAndBattleView } from "@/common/systems/syncCameraAndBattleView";
-import { syncHealthBarView } from "@/common/systems/syncHealthBarView";
 
 export default function FrameLoop() {
   const world = useWorld();
@@ -71,6 +72,7 @@ export default function FrameLoop() {
     updateInteractLineAnimation(world, delta);
     updateInteractionCamera(delta);
     syncCameraAndBattleView();
+    syncCameraAndRhythmView();
     syncHealthBarView();
   });
 

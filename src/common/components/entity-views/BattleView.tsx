@@ -1,12 +1,12 @@
-import type { Entity } from "koota";
-import { Html } from "@react-three/drei";
 import { useRefTrait } from "@/common/hooks/ecs/useRefTrait";
-import { BattleViewRef } from "@/common/traits/BattleViewRef";
-import styled from "styled-components";
+import { pressedAttackInput } from "@/common/systems/pressed/pressedAttackInput";
 import { pressedRunawayInput } from "@/common/systems/pressed/pressedRunawayInput";
+import { BattleViewRef } from "@/common/traits/BattleViewRef";
+import { Html } from "@react-three/drei";
+import type { Entity } from "koota";
 import { useWorld } from "koota/react";
 import { useCallback } from "react";
-import { HealthSystem } from "@/common/systems/health";
+import styled from "styled-components";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ export default function BattleView({ entity }: { entity: Entity }) {
   }, [world]);
 
   const handleAttack = useCallback(() => {
-    HealthSystem.from(world).damage(10);
+    pressedAttackInput(world);
   }, [world]);
 
   return (

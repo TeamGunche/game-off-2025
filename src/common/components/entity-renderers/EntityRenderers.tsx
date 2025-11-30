@@ -35,7 +35,7 @@ export default function EntityRenderers() {
       <EntityRenderer params={[IsCamera]} view={CameraView} />
       <EntityRenderer params={[IsInteracting, IsBattle]} view={BattleView} />
       <EntityRenderer params={[IsInteracting, IsBattle, HealthPoint]} view={HealthBarView} />
-      <EntityRenderer params={[IsInteracting, IsRhythm]} view={RhythmView} />
+      <EntityRenderer params={[IsInteracting, IsBattle, IsRhythm]} view={RhythmView} />
     </>
   );
 }

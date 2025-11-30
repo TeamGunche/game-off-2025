@@ -8861,7 +8861,10 @@
 									"id": "V_String",
 									"params": ["NPC_yeah"]
 								}] },
-								{ "__identifier": "Lines", "__type": "Array<String>", "__value": [], "__tile": null, "defUid": 69, "realEditorValues": [] },
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."], "__tile": null, "defUid": 69, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."]
+								}] },
 								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc2_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
 									"id": "V_String",
 									"params": ["../img/npc/npc2_idle.png"]
@@ -11323,9 +11326,9 @@
 									"id": "V_String",
 									"params": ["NPC_ohh"]
 								}] },
-								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."], "__tile": null, "defUid": 69, "realEditorValues": [{
+								{ "__identifier": "Lines", "__type": "Array<String>", "__value": ["My friend’s late again… watch them show up dancing for no reason."], "__tile": null, "defUid": 69, "realEditorValues": [{
 									"id": "V_String",
-									"params": ["Wait—don’t talk to me. I’m practicing my imaginary dance battle."]
+									"params": ["My friend’s late again… watch them show up dancing for no reason."]
 								}] },
 								{ "__identifier": "Idle", "__type": "FilePath", "__value": "../img/npc/npc1_idle.png", "__tile": null, "defUid": 60, "realEditorValues": [{
 									"id": "V_String",

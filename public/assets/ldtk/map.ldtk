@@ -11177,7 +11177,10 @@
 									"params": ["../img/martialartist/martialartist_idle.png"]
 								}] },
 								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 72, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
-								{ "__identifier": "BattleStart", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 62, "realEditorValues": [] },
+								{ "__identifier": "BattleStart", "__type": "FilePath", "__value": "../img/martialartist/martialartist_fight.png", "__tile": null, "defUid": 62, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/martialartist/martialartist_fight.png"]
+								}] },
 								{ "__identifier": "BattleStartLength", "__type": "Int", "__value": 5, "__tile": null, "defUid": 76, "realEditorValues": [{ "id": "V_Int", "params": [5] }] },
 								{ "__identifier": "Rhythm", "__type": "Array<FilePath>", "__value": [
 									"../img/martialartist/martialartist_dance1.png",
@@ -14625,7 +14628,10 @@
 									"params": ["../img/RudolfGirl/RudolfGirl_idle.png"]
 								}] },
 								{ "__identifier": "IdleLength", "__type": "Int", "__value": 10, "__tile": null, "defUid": 72, "realEditorValues": [{ "id": "V_Int", "params": [10] }] },
-								{ "__identifier": "BattleStart", "__type": "FilePath", "__value": null, "__tile": null, "defUid": 62, "realEditorValues": [] },
+								{ "__identifier": "BattleStart", "__type": "FilePath", "__value": "../img/RudolfGirl/RudolfGirl_fight.png", "__tile": null, "defUid": 62, "realEditorValues": [{
+									"id": "V_String",
+									"params": ["../img/RudolfGirl/RudolfGirl_fight.png"]
+								}] },
 								{ "__identifier": "BattleStartLength", "__type": "Int", "__value": 5, "__tile": null, "defUid": 76, "realEditorValues": [{ "id": "V_Int", "params": [5] }] },
 								{ "__identifier": "Rhythm", "__type": "Array<FilePath>", "__value": [
 									"../img/RudolfGirl/RudolfGirl_dance1.png",

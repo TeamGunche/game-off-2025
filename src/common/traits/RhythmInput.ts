@@ -1,8 +1,10 @@
 import { trait } from "koota";
 
-export const RhythmInput = trait({
-  1: false,
-  2: false,
-  3: false,
-  4: false,
-});
+export type RhythmInputType = [boolean, boolean, boolean, boolean];
+
+export const RhythmInput = trait<() => RhythmInputType>(() => [
+  false,
+  false,
+  false,
+  false,
+]);

@@ -20,6 +20,7 @@ import { BattleStartAnim } from "@/common/traits/BattleStartAnim.ts";
 import { MoveInput } from "@/common/traits/MoveInput.ts";
 import { RhythmInput } from "@/common/traits/RhythmInput.ts";
 import { RhythmAnims, type RhythmAnimTuple } from "@/common/traits/RhythmAnims.ts";
+import { shuffle } from "es-toolkit";
 
 export default function EnemySpawner(props: EntityRendererProps) {
   const { ldtkDir } = useLdtkLevelContext();
@@ -63,7 +64,7 @@ export default function EnemySpawner(props: EntityRendererProps) {
       IsEnemy,
       MoveInput, RhythmInput,
       CharacterStartPosition(startPosition.clone()), CharacterVisualPosition(startPosition.clone()),
-      CharacterFacingDirection,
+      CharacterFacingDirection({ value: shuffle([-1, 1])[0] }),
       InteractableRef(new Interactable(sensor, rapierWorld)),
       InteractLine({ lines: Lines }),
       SpriteAnim(new SpriteAnimImpl({

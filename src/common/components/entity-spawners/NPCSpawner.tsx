@@ -17,6 +17,7 @@ import { Vector2 } from "three";
 import { CharacterFacingDirection } from "@/common/traits/CharacterFacingDirection.ts";
 import { MoveInput } from "@/common/traits/MoveInput.ts";
 import { IdleAnim } from "@/common/traits/IdleAnim.ts";
+import { shuffle } from "es-toolkit";
 
 export default function NPCSpawner(props: EntityRendererProps) {
   const { ldtkDir } = useLdtkLevelContext();
@@ -52,7 +53,7 @@ export default function NPCSpawner(props: EntityRendererProps) {
       IsNPC,
       MoveInput,
       CharacterStartPosition(startPosition.clone()), CharacterVisualPosition(startPosition.clone()),
-      CharacterFacingDirection,
+      CharacterFacingDirection({ value: shuffle([-1, 1])[0] }),
       InteractableRef(new Interactable(sensor, rapierWorld)),
       InteractLine({ lines: Lines }),
       SpriteAnim(new SpriteAnimImpl({

@@ -1,0 +1,26 @@
+{
+  "title": "Candle Pattern",
+  "notes": [
+    { "type": "long", "position": 1, "time": 0, "endTime": 2000 },
+    { "type": "short", "position": 2, "time": 500 },
+    { "type": "short", "position": 3, "time": 1000 },
+    { "type": "short", "position": 4, "time": 1500 },
+    { "type": "long", "position": 3, "time": 2000, "endTime": 4000 },
+    { "type": "short", "position": 1, "time": 2500 },
+    { "type": "short", "position": 2, "time": 3000 },
+    { "type": "short", "position": 4, "time": 3500 },
+    { "type": "long", "position": 2, "time": 4000, "endTime": 6000 },
+    { "type": "short", "position": 1, "time": 4500 },
+    { "type": "short", "position": 3, "time": 5000 },
+    { "type": "short", "position": 4, "time": 5500 },
+    { "type": "long", "position": 4, "time": 6000, "endTime": 8000 },
+    { "type": "short", "position": 1, "time": 6500 },
+    { "type": "short", "position": 2, "time": 7000 },
+    { "type": "short", "position": 3, "time": 7500 },
+    { "type": "long", "position": 1, "time": 8000, "endTime": 10000 },
+    { "type": "short", "position": 2, "time": 8500 },
+    { "type": "short", "position": 3, "time": 9000 },
+    { "type": "short", "position": 4, "time": 9500 }
+  ]
+}
+

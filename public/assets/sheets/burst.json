@@ -1,0 +1,33 @@
+{
+  "title": "Burst Pattern",
+  "notes": [
+    { "type": "short", "position": 1, "time": 0 },
+    { "type": "short", "position": 2, "time": 100 },
+    { "type": "short", "position": 3, "time": 200 },
+    { "type": "short", "position": 4, "time": 300 },
+    { "type": "short", "position": 2, "time": 1500 },
+    { "type": "short", "position": 3, "time": 1600 },
+    { "type": "short", "position": 4, "time": 1700 },
+    { "type": "short", "position": 1, "time": 1800 },
+    { "type": "short", "position": 4, "time": 3000 },
+    { "type": "short", "position": 3, "time": 3100 },
+    { "type": "short", "position": 2, "time": 3200 },
+    { "type": "short", "position": 1, "time": 3300 },
+    { "type": "short", "position": 1, "time": 4500 },
+    { "type": "short", "position": 2, "time": 4600 },
+    { "type": "short", "position": 3, "time": 4700 },
+    { "type": "short", "position": 4, "time": 4800 },
+    { "type": "short", "position": 3, "time": 6000 },
+    { "type": "short", "position": 2, "time": 6100 },
+    { "type": "short", "position": 1, "time": 6200 },
+    { "type": "short", "position": 4, "time": 6300 },
+    { "type": "short", "position": 1, "time": 7500 },
+    { "type": "short", "position": 2, "time": 7600 },
+    { "type": "short", "position": 3, "time": 7700 },
+    { "type": "short", "position": 4, "time": 7800 },
+    { "type": "short", "position": 4, "time": 9000 },
+    { "type": "short", "position": 3, "time": 9100 },
+    { "type": "short", "position": 2, "time": 9200 },
+    { "type": "short", "position": 1, "time": 9300 }
+  ]
+}

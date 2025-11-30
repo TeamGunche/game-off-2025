@@ -36,7 +36,7 @@ export default function EntityRenderers() {
       <EntityRenderer params={[IsInteractionFocused, Not(IsInteracting)]} view={InteractionHintView} />
       <EntityRenderer params={[IsInteracting, IsChat, InteractLine]} view={InteractionLineView} />
       <EntityRenderer params={[IsInteracting, IsBattle, Not(RhythmTurn)]} view={BattleView} />
-      <EntityRenderer params={[IsInteracting, IsBattle, HealthPoint]} view={HealthBarView} />
+      <EntityRenderer params={[HealthPoint]} view={HealthBarView} />
     </>
   );
 }

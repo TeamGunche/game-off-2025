@@ -1,24 +1,17 @@
-import { useWorld } from "koota/react";
-import { useKeyboardControls } from "@react-three/drei";
 import type { RhythmControlType } from "@/common/defs/keyboardControlMap.ts";
-import { useEffect } from "react";
-import { pressedRhythmInput } from "@/common/systems/pressed/pressedRhythmInput.tsx";
+import { pressedRhythmInput } from "@/common/systems/pressed/pressedRhythmInput.ts";
+import useKeyboardControlsCallback from "@/common/hooks/input/useKeyboardControlsCallback.ts";
+import { releasedRhythmInput } from "@/common/systems/released/releasedRhythmInput.ts";
 
 export default function RhythmKeyboardEvents() {
-  const world = useWorld();
-  const [subInput] = useKeyboardControls<RhythmControlType>();
-
   ([1, 2, 3, 4] as const)
     .forEach((num) => {
-      useEffect(() => {
-        return subInput(
-          state => state[`rhythm ${num}`],
-          (pressed) => {
-            if (pressed) pressedRhythmInput(world, num);
-          },
-        );
-      }, []);
+      useKeyboardControlsCallback<RhythmControlType>(`rhythm ${num}`,
+        () => {
+          pressedRhythmInput(num);
+        }, () => {
+          releasedRhythmInput(num);
+        });
     });
-
   return <></>;
 }

@@ -1,11 +1,11 @@
 import type { KeyboardControlType } from "@/common/defs/keyboardControlMap.ts";
 import { pressedTransformInput } from "@/common/systems/pressed/pressedTransformInput.ts";
 import { pressedInteractInput } from "@/common/systems/pressed/pressedInteractInput.ts";
-import useOnKeyboardPress from "@/common/hooks/input/useOnKeyboardPress.ts";
+import useKeyboardControlsCallback from "@/common/hooks/input/useKeyboardControlsCallback.ts";
 
 export default function KeyboardEvents() {
-  useOnKeyboardPress<KeyboardControlType>("transform", pressedTransformInput);
-  useOnKeyboardPress<KeyboardControlType>("interact", pressedInteractInput);
+  useKeyboardControlsCallback<KeyboardControlType>("transform", pressedTransformInput);
+  useKeyboardControlsCallback<KeyboardControlType>("interact", pressedInteractInput);
 
   return <></>;
 }

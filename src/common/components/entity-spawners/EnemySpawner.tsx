@@ -18,6 +18,7 @@ import { InteractLine } from "@/common/traits/InteractLine.ts";
 import { IdleAnim } from "@/common/traits/IdleAnim.ts";
 import { BattleStartAnim } from "@/common/traits/BattleStartAnim.ts";
 import { MoveInput } from "@/common/traits/MoveInput.ts";
+import { RhythmInput } from "@/common/traits/RhythmInput.ts";
 
 export default function EnemySpawner(props: EntityRendererProps) {
   const { ldtkDir } = useLdtkLevelContext();
@@ -55,7 +56,7 @@ export default function EnemySpawner(props: EntityRendererProps) {
     if (!sensor) return;
     world.spawn(
       IsEnemy,
-      MoveInput,
+      MoveInput, RhythmInput,
       CharacterStartPosition(startPosition.clone()), CharacterVisualPosition(startPosition.clone()),
       CharacterFacingDirection,
       InteractableRef(new Interactable(sensor, rapierWorld)),

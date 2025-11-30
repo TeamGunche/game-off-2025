@@ -21,6 +21,7 @@ import { IdleAnim } from "@/common/traits/IdleAnim.ts";
 import { WalkAnim } from "@/common/traits/WalkAnim.ts";
 import { RhythmAnims } from "@/common/traits/RhythmAnims.ts";
 import { BattleStartAnim } from "@/common/traits/BattleStartAnim.ts";
+import { RhythmInput } from "@/common/traits/RhythmInput.ts";
 
 export default function PlayerSpawner(props: EntityRendererProps) {
   const worldPos = getEntityWorldPosition(props);
@@ -39,7 +40,7 @@ export default function PlayerSpawner(props: EntityRendererProps) {
 
     world.spawn(
       IsPlayer, PlayerStates,
-      MoveInput(new Vector2(0, 0)), JumpInput,
+      MoveInput(new Vector2(0, 0)), JumpInput, RhythmInput,
       CharacterStartPosition(startPosition.clone()), CharacterVisualPosition(startPosition.clone()), CharacterVelocity,
       CharacterStats.speed(5), CharacterStats.jumpStrength(12),
       CharacterFacingDirection,

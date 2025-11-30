@@ -8,6 +8,7 @@ import type { MusicSheet } from "@/common/model/MusicSheet.ts";
 import { world } from "@/common/world.ts";
 import { RhythmNote } from "@/common/traits/RhythmNote.ts";
 import { scrollTime } from "@/common/defs/scrollTime.ts";
+import { shuffle } from "es-toolkit";
 
 const startOffset = 2; // seconds
 
@@ -17,9 +18,10 @@ export const pressedAttackInput = (world: World) => {
     entity.add(RhythmTurn({ phase: "attack", total: notesLength }), RhythmSheet);
   });
 };
+const sheets = ["anchor", "bracket", "burst", "candle", "chord", "gallop", "handstream", "holds", "jack", "jumps", "minijack", "polyrhythm", "quadstream", "roll", "runningman", "stairs", "stream", "trill", "vibro", "zigzag"];
 
-const spawnNotes = async () => {
-  const sheet = await fetch(getSafePath("/assets/sheets/candle.json")).then(res => res.json()) as MusicSheet;
+export const spawnNotes = async () => {
+  const sheet = await fetch(getSafePath(`/assets/sheets/${shuffle(sheets)[0]}.json`)).then(res => res.json()) as MusicSheet;
   sheet.notes.forEach((n) => {
     world.spawn(RhythmNote({
       type: n.type,

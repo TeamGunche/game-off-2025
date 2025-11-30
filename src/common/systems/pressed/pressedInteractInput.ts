@@ -39,7 +39,6 @@ export const pressedInteractInput = () => {
         entity.remove(IsInteracting);
       }
       if (entity.has(IsEnemy)) {
-        entity.add(HealthPoint);
         entity.add(IsBattle);
       }
       return;

@@ -8,9 +8,7 @@ export const handleRhythmTurn = () => {
     if (world.query(RhythmNote).length === 0) {
       if (rhythm.phase === "attack") {
         rhythm.phase = "prepare";
-        const len = await spawnNotes();
-        rhythm.total = len;
-        rhythm.accuracy = 100;
+        await spawnNotes();
         rhythm.phase = "defense";
         entity.set(RhythmTurn, { ...rhythm });
         return;

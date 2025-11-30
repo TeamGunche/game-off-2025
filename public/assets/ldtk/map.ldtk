@@ -11158,7 +11158,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Enemy",
-							"__grid": [26,12],
+							"__grid": [27,12],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -11167,7 +11167,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 50,
-							"px": [427,193],
+							"px": [443,193],
 							"fieldInstances": [
 								{ "__identifier": "Name", "__type": "String", "__value": null, "__tile": null, "defUid": 51, "realEditorValues": [] },
 								{ "__identifier": "Description", "__type": "String", "__value": null, "__tile": null, "defUid": 67, "realEditorValues": [] },
@@ -11238,7 +11238,7 @@
 								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 1, "__tile": null, "defUid": 58, "realEditorValues": [{ "id": "V_Float", "params": [1] }] },
 								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 1, "__tile": null, "defUid": 59, "realEditorValues": [{ "id": "V_Float", "params": [1] }] }
 							],
-							"__worldX": 1483,
+							"__worldX": 1499,
 							"__worldY": -367
 						}
 					]
@@ -14606,7 +14606,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Enemy",
-							"__grid": [17,11],
+							"__grid": [30,11],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -14615,7 +14615,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 50,
-							"px": [284,191],
+							"px": [492,191],
 							"fieldInstances": [
 								{ "__identifier": "Name", "__type": "String", "__value": "Rudolf Girl", "__tile": null, "defUid": 51, "realEditorValues": [{
 									"id": "V_String",
@@ -14689,7 +14689,7 @@
 								{ "__identifier": "SensorWidth", "__type": "Float", "__value": 1, "__tile": null, "defUid": 58, "realEditorValues": [{ "id": "V_Float", "params": [1] }] },
 								{ "__identifier": "SensorHeight", "__type": "Float", "__value": 1, "__tile": null, "defUid": 59, "realEditorValues": [{ "id": "V_Float", "params": [1] }] }
 							],
-							"__worldX": 1340,
+							"__worldX": 1548,
 							"__worldY": -609
 						}
 					]

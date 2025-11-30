@@ -15,7 +15,7 @@ export class CharacterController {
     this.controller = world.createCharacterController(0.01);
     this.controller.setUp({ x: 0, y: 1 });
     this.controller.setMaxSlopeClimbAngle(deg2rad(45));
-    this.controller.enableAutostep(0.5, 0.01, true);
+    this.controller.enableAutostep(1.1, 0.01, true);
     this.controller.enableSnapToGround(0.1);
     this.controller.setApplyImpulsesToDynamicBodies(true);
   }

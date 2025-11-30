@@ -10,7 +10,6 @@ import { playIdleAnim } from "@/common/systems/play/playIdleAnim.ts";
 import { playWalkAnim } from "@/common/systems/play/playWalkAnim.ts";
 import pollPlayerInput from "@/common/systems/pollPlayerInput.ts";
 import { syncCameraAndBattleView } from "@/common/systems/syncCameraAndBattleView";
-import { syncCameraAndRhythmView } from "@/common/systems/syncCameraAndRhythmView";
 import { syncControllerAndVisualPosition } from "@/common/systems/syncControllerAndVisualPosition.ts";
 import { syncHealthBarView } from "@/common/systems/syncHealthBarView";
 import { syncVisualPositionAndMesh } from "@/common/systems/syncVisualPositionAndMesh.ts";
@@ -24,6 +23,8 @@ import { useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useWorld } from "koota/react";
 import { playRhythmAnim } from "@/common/systems/play/playRhythmAnim.ts";
+import { scrollNotes } from "@/common/systems/scrollNotes.ts";
+import { updateNoteViews } from "@/common/systems/updateNoteViews.ts";
 
 export default function FrameLoop() {
   const world = useWorld();
@@ -74,8 +75,10 @@ export default function FrameLoop() {
     updateInteractLineAnimation(world, delta);
     updateInteractionCamera(delta);
     syncCameraAndBattleView();
-    syncCameraAndRhythmView();
     syncHealthBarView();
+
+    scrollNotes(delta);
+    updateNoteViews();
   });
 
   return <></>;

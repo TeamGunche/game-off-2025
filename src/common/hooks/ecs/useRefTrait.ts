@@ -17,7 +17,12 @@ export const useRefTrait = <T extends object>(entity: Entity, trait: Trait<() =>
         return;
       }
       if (!world.has(entity)) return;
-      entity.add(trait(component));
+      if (entity.has(trait)) {
+        if (entity.get(trait) !== component) entity.set(trait, component);
+      }
+      else {
+        entity.add(trait(component));
+      }
       return () => entity.remove(trait);
     },
     [entity],

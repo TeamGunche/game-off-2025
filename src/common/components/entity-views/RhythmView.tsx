@@ -1,6 +1,3 @@
-import { useRefTrait } from "@/common/hooks/ecs/useRefTrait";
-import { RhythmViewRef } from "@/common/traits/RhythmViewRef";
-import { Html } from "@react-three/drei";
 import type { Entity } from "koota";
 import styled, { css } from "styled-components";
 import { useTraitEffect } from "koota/react";
@@ -17,6 +14,8 @@ const Container = styled.div`
   gap: 1px;
   border-radius: 8px;
   overflow: hidden;
+
+  z-index: 100;
 `;
 
 const Lane = styled.div`
@@ -43,7 +42,6 @@ const HitArea = styled.div<{ $active: boolean }>`
 `;
 
 export default function RhythmView({ entity}: { entity: Entity }) {
-  const rhythmViewRef = useRefTrait(entity, RhythmViewRef);
   const [activeInputs, setActiveInputs] = useState([false, false, false, false]);
   useTraitEffect(entity, RhythmInput, (input) => {
     setActiveInputs((prev) => {
@@ -56,19 +54,15 @@ export default function RhythmView({ entity}: { entity: Entity }) {
   });
 
   return (
-    <group ref={rhythmViewRef}>
-      <Html fullscreen>
-        <Container>
-          {[0, 1, 2, 3].map((num) => {
-            const isActive = activeInputs[num];
-            return (
-              <Lane key={num}>
-                <HitArea $active={isActive} />
-              </Lane>
-            );
-          })}
-        </Container>
-      </Html>
-    </group>
+    <Container>
+      {[0, 1, 2, 3].map((num) => {
+        const isActive = activeInputs[num];
+        return (
+          <Lane key={num}>
+            <HitArea $active={isActive} />
+          </Lane>
+        );
+      })}
+    </Container>
   );
 }

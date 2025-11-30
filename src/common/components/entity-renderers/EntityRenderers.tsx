@@ -1,25 +1,27 @@
+import BattleView from "@/common/components/entity-views/BattleView.tsx";
 import CameraView from "@/common/components/entity-views/CameraView.tsx";
 import EnemyView from "@/common/components/entity-views/EnemyView.tsx";
+import HealthBarView from "@/common/components/entity-views/HealthBarView";
+import InteractionHintView from "@/common/components/entity-views/InteractionHintView.tsx";
+import { InteractionLineView } from "@/common/components/entity-views/InteractionLineView";
 import NPCView from "@/common/components/entity-views/NPCView.tsx";
 import PlayerView from "@/common/components/entity-views/PlayerView.tsx";
+import RhythmView from "@/common/components/entity-views/RhythmView";
+import { HealthPoint } from "@/common/traits/HealthPoint";
 import { InteractLine } from "@/common/traits/InteractLine";
+import { IsBattle } from "@/common/traits/IsBattle";
 import { IsCamera } from "@/common/traits/IsCamera.ts";
+import { IsChat } from "@/common/traits/IsChat.ts";
 import { IsEnemy } from "@/common/traits/IsEnemy.ts";
 import { IsInteracting } from "@/common/traits/IsInteracting.ts";
 import { IsInteractionFocused } from "@/common/traits/IsInteractionFocused";
 import { IsNPC } from "@/common/traits/IsNPC.ts";
 import { IsPlayer } from "@/common/traits/IsPlayer.ts";
+import { IsRhythm } from "@/common/traits/IsRhythm";
 import { type Entity, Not, type QueryParameter } from "koota";
 import { useQuery } from "koota/react";
 import { Fragment, type JSX } from "react";
 import { useUnmount } from "react-use";
-import { InteractionLineView } from "../entity-views/InteractionLineView";
-import InteractionHintView from "@/common/components/entity-views/InteractionHintView.tsx";
-import BattleView from "@/common/components/entity-views/BattleView.tsx";
-import { IsBattle } from "@/common/traits/IsBattle";
-import { IsChat } from "@/common/traits/IsChat.ts";
-import HealthBarView from "@/common/components/entity-views/HealthBarView";
-import { HealthPoint } from "@/common/traits/HealthPoint";
 
 /** Koota entity renderers */
 export default function EntityRenderers() {
@@ -33,6 +35,7 @@ export default function EntityRenderers() {
       <EntityRenderer params={[IsCamera]} view={CameraView} />
       <EntityRenderer params={[IsInteracting, IsBattle]} view={BattleView} />
       <EntityRenderer params={[IsInteracting, IsBattle, HealthPoint]} view={HealthBarView} />
+      <EntityRenderer params={[IsInteracting, IsRhythm]} view={RhythmView} />
     </>
   );
 }
@@ -41,13 +44,13 @@ const EntityRenderer = <T extends QueryParameter[]>({
   params,
   view: View,
 }: {
-  params: T;
-  view: (p: { entity: Entity }) => JSX.Element;
+  params: T
+  view: (p: { entity: Entity }) => JSX.Element
 }) => {
   const entities = useQuery(...params);
 
   useUnmount(() => {
-    entities.forEach((e) => e.destroy());
+    entities.forEach(e => e.destroy());
   });
 
   return (

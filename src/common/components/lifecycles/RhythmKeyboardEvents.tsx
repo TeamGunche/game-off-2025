@@ -8,9 +8,9 @@ export default function RhythmKeyboardEvents() {
     .forEach((num) => {
       useKeyboardControlsCallback<RhythmControlType>(`rhythm ${num}`,
         () => {
-          pressedRhythmInput(num);
+          pressedRhythmInput(num - 1 as 0 | 1 | 2 | 3);
         }, () => {
-          releasedRhythmInput(num);
+          releasedRhythmInput(num - 1 as 0 | 1 | 2 | 3);
         });
     });
   return <></>;

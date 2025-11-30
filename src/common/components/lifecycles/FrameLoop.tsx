@@ -5,9 +5,9 @@ import { applyFacingDirection } from "@/common/systems/applyFacingDirection.ts";
 import { applySpriteAnim } from "@/common/systems/applySpriteAnim.ts";
 import { doJump } from "@/common/systems/doJump.ts";
 import { freeJumpBuffer } from "@/common/systems/freeJumpBuffer.ts";
-import { playBattleStartAnim } from "@/common/systems/playBattleStartAnim.ts";
-import { playIdleAnim } from "@/common/systems/playIdleAnim.ts";
-import { playWalkAnim } from "@/common/systems/playWalkAnim.ts";
+import { playBattleStartAnim } from "@/common/systems/play/playBattleStartAnim.ts";
+import { playIdleAnim } from "@/common/systems/play/playIdleAnim.ts";
+import { playWalkAnim } from "@/common/systems/play/playWalkAnim.ts";
 import pollPlayerInput from "@/common/systems/pollPlayerInput.ts";
 import { syncCameraAndBattleView } from "@/common/systems/syncCameraAndBattleView";
 import { syncCameraAndRhythmView } from "@/common/systems/syncCameraAndRhythmView";
@@ -23,6 +23,7 @@ import { updateInteractLineAnimation } from "@/common/systems/updateInteractLine
 import { useKeyboardControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useWorld } from "koota/react";
+import { playRhythmAnim } from "@/common/systems/play/playRhythmAnim.ts";
 
 export default function FrameLoop() {
   const world = useWorld();
@@ -63,6 +64,7 @@ export default function FrameLoop() {
     playIdleAnim();
     playWalkAnim();
     playBattleStartAnim();
+    playRhythmAnim();
 
     tickSpriteAnim(world);
     applySpriteAnim(world);

@@ -60,6 +60,9 @@ export const updateNoteViews = () => {
       }
     }
 
+    if (rhythm.phase === "defense") {
+      view.style.background = "rgba(255, 0, 0, 0.5)";
+    }
     if (note.held) {
       view.style.background = "rgba(255, 255, 255, 0.5)";
     }

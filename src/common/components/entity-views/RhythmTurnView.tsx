@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { useTraitEffect } from "koota/react";
 import { RhythmInput } from "@/common/traits/RhythmInput.ts";
 import { useState } from "react";
+import { rhythmControlMap } from "@/common/defs/keyboardControlMap.ts";
 
 const Container = styled.div`
   position: absolute;
@@ -35,6 +36,11 @@ const HitArea = styled.div<{ $active: boolean }>`
   height: 10%;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
 
   ${({ $active }) => $active && css`
     background-color: rgba(255, 255, 255, 1);
@@ -59,7 +65,9 @@ export default function RhythmTurnView({ entity}: { entity: Entity }) {
         const isActive = activeInputs[num];
         return (
           <Lane key={num}>
-            <HitArea $active={isActive} />
+            <HitArea $active={isActive}>
+              {rhythmControlMap[num].keys[0].replace("Key", "")}
+            </HitArea>
           </Lane>
         );
       })}

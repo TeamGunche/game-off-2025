@@ -17,9 +17,8 @@ function Setting() {
     handleKeymapChange,
     setDisplayMode,
     displayMode,
+    volume, setVolume,
   } = useApp();
-
-  const [volume, setVolume] = useState(1);
   const [rebindingAction, setRebindingAction] = useState<KeyboardControlType | null>(null);
   const [keyError, setKeyError] = useState<KeyBindError | null>(null);
 
@@ -110,7 +109,7 @@ function Setting() {
             </SettingSelect>
           </SettingRow>
 
-          {/*<button onClick={() => (playMelody(240))}></button>*/}
+          {/* <button onClick={() => (playMelody(240))}></button> */}
 
           {/* volume */ }
           <SettingRow>

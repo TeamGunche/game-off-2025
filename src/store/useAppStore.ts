@@ -13,6 +13,7 @@ function useAppStore() {
   const [displayMode, setDisplayMode] = useState<DisplayMode>("1200x640");
   const [previousGameState, setPreviousGameState] = useState<GameState>("main");
   const [isPaused, setIsPaused] = useState(false);
+  const [volume, setVolume] = useState(1.0);
 
   const pauseGame = () => setIsPaused(true);
   const resumeGame = () => setIsPaused(false);
@@ -74,6 +75,7 @@ function useAppStore() {
     pauseGame,
     resumeGame,
     previousGameState,
+    volume, setVolume,
   };
 }
 

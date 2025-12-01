@@ -110,7 +110,7 @@ function Setting() {
             </SettingSelect>
           </SettingRow>
 
-          <button onClick={() => (playMelody(240))}></button>
+          {/*<button onClick={() => (playMelody(240))}></button>*/}
 
           {/* volume */ }
           <SettingRow>

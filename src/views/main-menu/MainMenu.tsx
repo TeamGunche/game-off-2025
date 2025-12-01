@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useApp } from "@/store/useAppStore.ts";
+import TitleImg from "@/../public/assets/img/UI/Title.png";
+import BackgroundImg from "@/../public/assets/img/UI/Title_BG.png";
 
 function MainMenu() {
   const { startGame, showSettings } = useApp();
@@ -10,8 +12,8 @@ function MainMenu() {
 
   return (
     <Container>
+      <Title src={TitleImg} />
       <MenuBox>
-        <Title>Game Title</Title>
         <MenuButtons>
           <MenuButton onClick={startGame}>Game Start</MenuButton>
           <MenuButton onClick={showSettings}>Setting</MenuButton>
@@ -30,26 +32,27 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  image-rendering: pixelated;
-  -webkit-font-smoothing: none;
+  flex-direction: column;
+
+  background-image: url(${BackgroundImg});
+  background-size: cover;
 `;
 
 const MenuBox = styled.div`
-  background-color: #2a2a2a;
   padding: 40px 60px;
   border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  //box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   min-width: 400px;
+
+  //background-color: rgba(255, 255, 255, 0.1);
+  //backdrop-filter: blur(15px);
 `;
 
-const Title = styled.h1`
-  font-size: 3.5rem;
+const Title = styled.img`
   margin-bottom: 40px;
-  color: #ececec;
+  width: 300px;
 `;
 
 const MenuButtons = styled.div`

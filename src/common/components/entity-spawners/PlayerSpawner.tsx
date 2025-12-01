@@ -44,7 +44,7 @@ export default function PlayerSpawner(props: EntityRendererProps) {
       MoveInput(new Vector2(0, 0)), JumpInput, RhythmInput,
       HealthPoint,
       CharacterStartPosition(startPosition.clone()), CharacterVisualPosition(startPosition.clone()), CharacterVelocity,
-      CharacterStats.speed(5), CharacterStats.jumpStrength(12),
+      CharacterStats.speed(7), CharacterStats.jumpStrength(12),
       CharacterFacingDirection,
       CharacterControllerRef(new CharacterController(collider, rapierWorld)),
       SpriteAnim(new SpriteAnimImpl({

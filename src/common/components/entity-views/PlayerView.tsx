@@ -10,19 +10,8 @@ export default function PlayerView({ entity }: { entity: Entity }) {
       <group position-z={1}>
         <mesh ref={useRefTrait(entity, MeshRef)}>
           <planeGeometry args={[2, 2, 1]} />
-          <meshLambertMaterial color="white" ref={useRefTrait(entity, MaterialRef)} transparent />
+          <meshBasicMaterial color="white" ref={useRefTrait(entity, MaterialRef)} transparent />
         </mesh>
-        <pointLight
-          castShadow
-          position-z={2}
-          intensity={2}
-          decay={0.5}
-          distance={15}
-          shadow-mapSize-width={256}
-          shadow-mapSize-height={256}
-          shadow-bias={0.005}
-          shadow-normalBias={0.02}
-        />
       </group>
     </group>
   );

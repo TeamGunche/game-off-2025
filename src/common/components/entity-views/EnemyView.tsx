@@ -10,7 +10,7 @@ export default function EnemyView({ entity }: { entity: Entity }) {
       <group position-z={1}>
         <mesh ref={useRefTrait(entity, MeshRef)}>
           <planeGeometry args={[2, 2, 1]} />
-          <meshLambertMaterial color="white" ref={useRefTrait(entity, MaterialRef)} transparent />
+          <meshBasicMaterial color="white" ref={useRefTrait(entity, MaterialRef)} transparent />
         </mesh>
       </group>
     </group>

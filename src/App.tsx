@@ -68,7 +68,7 @@ function App() {
               gl={{ antialias: false, powerPreference: "high-performance" }}
               ref={ref}
               dpr={RENDER_HEIGHT / (height ?? 1)}
-              shadows="basic"
+              shadows={false}
               linear={true}
               flat={true}
               style={{

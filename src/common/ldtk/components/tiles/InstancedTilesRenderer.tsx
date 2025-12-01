@@ -144,9 +144,9 @@ function InstancedTileGroup(
 
   return (
     <Instances limit={tiles.length} geometry={PLANE}>
-      <meshLambertMaterial transparent={true} color="white">
+      <meshBasicMaterial transparent={true} color="white">
         <primitive attach="map" object={texture} />
-      </meshLambertMaterial>
+      </meshBasicMaterial>
 
       {tileTransforms.map((transform, i) => (
         <Instance

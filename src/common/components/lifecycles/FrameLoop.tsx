@@ -27,6 +27,7 @@ import { scrollNotes } from "@/common/systems/scrollNotes.ts";
 import { updateNoteViews } from "@/common/systems/updateNoteViews.ts";
 import { handleRhythmTurn } from "@/common/systems/handleRhythmTurn.ts";
 import { useRef } from "react";
+import { onHPZero } from "@/common/systems/onHPZero.ts";
 
 const FPS = 60;
 
@@ -71,6 +72,8 @@ export default function FrameLoop() {
       scrollNotes(delta);
       updateNoteViews();
       handleRhythmTurn();
+
+      onHPZero();
 
       gl.render(scene, camera);
       accDelta.current = 0;

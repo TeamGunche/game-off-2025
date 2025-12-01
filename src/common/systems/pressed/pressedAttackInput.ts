@@ -14,8 +14,8 @@ const startOffset = 2; // seconds
 
 export const pressedAttackInput = (world: World) => {
   world.query(IsInteracting, IsBattle).updateEach(async (_, entity) => {
-    const notesLength = await spawnNotes();
-    entity.add(RhythmTurn({ phase: "attack", total: notesLength }), RhythmSheet);
+    await spawnNotes();
+    entity.add(RhythmTurn({ phase: "attack" }), RhythmSheet);
   });
 };
 const sheets = ["anchor", "bracket", "burst", "candle", "chord", "gallop", "handstream", "holds", "jack", "jumps", "minijack", "polyrhythm", "quadstream", "roll", "runningman", "stairs", "stream", "trill", "vibro", "zigzag"];

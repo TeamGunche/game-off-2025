@@ -9,8 +9,9 @@ import { Not } from "koota";
 import { IsNPC } from "@/common/traits/IsNPC.ts";
 import { HealthSystem } from "@/common/systems/health";
 import { IsDefeat } from "@/common/traits/IsDefeat.ts";
+import { IsVictory } from "@/common/traits/IsVictory.ts";
 
-export const pressedInteractInput = () => {
+export const pressedInteractInput = (goMain: () => void) => {
   world.query(IsInteractionFocused, Not(IsInteracting)).updateEach((_, entity) => {
     if (!entity.has(IsInteracting)) {
       entity.add(IsInteracting);
@@ -41,6 +42,9 @@ export const pressedInteractInput = () => {
       if (entity.has(IsEnemy)) {
         if (entity.has(IsDefeat)) {
           entity.remove(IsInteracting);
+        }
+        else if (entity.has(IsVictory)) {
+          goMain();
         }
         else {
           entity.add(IsBattle);

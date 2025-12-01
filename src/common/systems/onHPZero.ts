@@ -9,6 +9,7 @@ import { IsDefeat } from "@/common/traits/IsDefeat.ts";
 import { IsPlayer } from "@/common/traits/IsPlayer.ts";
 import { RhythmTurn } from "@/common/traits/RhythmTurn.ts";
 import { RhythmNote } from "@/common/traits/RhythmNote.ts";
+import { IsVictory } from "@/common/traits/IsVictory.ts";
 
 export const onHPZero = () => {
   world.query(HealthPoint, IsBattle, LdtkEntityInstance, InteractLine).updateEach(([health, ldtkEntity, interactLine], entity) => {
@@ -30,6 +31,7 @@ export const onHPZero = () => {
         }>(ldtkEntity);
         interactLine.lines = VictoryLines;
         entity.add(IsChat);
+        entity.add(IsVictory);
         entity.remove(IsBattle);
         entity.remove(RhythmTurn);
         destroyAllNotes();

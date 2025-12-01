@@ -22,7 +22,7 @@ export class Snare implements InstrumentEngine {
     // Noise component
     this.noiseWad = new Wad({
       source: "noise",
-      volume: this.volume * 1.1,
+      volume: this.volume * 0.6,
       env: {
         attack: 0.001,
         decay: this.decay,

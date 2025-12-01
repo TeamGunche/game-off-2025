@@ -10,8 +10,8 @@ export class Click implements InstrumentEngine {
   constructor(ctx: AudioContext) {
     this.ctx = ctx;
     this.tone = 1500; // High frequency for crisp click
-    this.decay = 0.05; // Very short
-    this.volume = 3;
+    this.decay = 0.08; // Slightly longer for bigger sound
+    this.volume = 5; // Increased from 3 to 5
     this.fxAmount = 0;
   }
 
@@ -36,14 +36,14 @@ export class Click implements InstrumentEngine {
 
     // Create short, crisp reverb using convolver
     const convolver = this.ctx.createConvolver();
-    const reverbLength = this.ctx.sampleRate * 0.3; // Short 300ms reverb
+    const reverbLength = this.ctx.sampleRate * 0.8; // Increased from 0.3 to 0.8 for longer reverb
     const impulse = this.ctx.createBuffer(2, reverbLength, this.ctx.sampleRate);
     const impulseL = impulse.getChannelData(0);
     const impulseR = impulse.getChannelData(1);
 
     // Generate crisp impulse response with fast decay
     for (let i = 0; i < reverbLength; i++) {
-      const decay = Math.pow(1 - i / reverbLength, 3); // Fast exponential decay
+      const decay = Math.pow(1 - i / reverbLength, 2.5); // Changed from 3 to 2.5 for slower decay
       impulseL[i] = (Math.random() * 2 - 1) * decay;
       impulseR[i] = (Math.random() * 2 - 1) * decay;
     }
@@ -51,12 +51,12 @@ export class Click implements InstrumentEngine {
     convolver.buffer = impulse;
 
     const reverbGain = this.ctx.createGain();
-    reverbGain.gain.setValueAtTime(0.3 + this.fxAmount * 0.4, now);
+    reverbGain.gain.setValueAtTime(0.6 + this.fxAmount * 0.6, now); // Increased from 0.3/0.4 to 0.6/0.6
 
     // Highpass filter on reverb to keep it crisp
     const reverbHighpass = this.ctx.createBiquadFilter();
     reverbHighpass.type = "highpass";
-    reverbHighpass.frequency.setValueAtTime(1200, now);
+    reverbHighpass.frequency.setValueAtTime(800, now); // Lowered from 1200 to 800 for more body
 
     convolver.connect(reverbHighpass);
     reverbHighpass.connect(reverbGain);
@@ -92,7 +92,7 @@ export class Click implements InstrumentEngine {
 
     // Gain envelope
     const gainNode = this.ctx.createGain();
-    gainNode.gain.setValueAtTime(this.volume, now);
+    gainNode.gain.setValueAtTime(this.volume * 2, now);
     gainNode.gain.exponentialRampToValueAtTime(0.001, now + this.decay);
 
     // Short oscillator for tonal component
@@ -102,7 +102,7 @@ export class Click implements InstrumentEngine {
     osc.frequency.exponentialRampToValueAtTime(this.tone * 0.5, now + 0.01);
 
     const oscGain = this.ctx.createGain();
-    oscGain.gain.setValueAtTime(this.volume * 0.3, now);
+    oscGain.gain.setValueAtTime(this.volume * 0.6, now);
     oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.01);
 
     // Connect audio graph - split to direct and reverb

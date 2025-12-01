@@ -26,45 +26,56 @@ import { playRhythmAnim } from "@/common/systems/play/playRhythmAnim.ts";
 import { scrollNotes } from "@/common/systems/scrollNotes.ts";
 import { updateNoteViews } from "@/common/systems/updateNoteViews.ts";
 import { handleRhythmTurn } from "@/common/systems/handleRhythmTurn.ts";
+import { useRef } from "react";
+
+const FPS = 60;
 
 export default function FrameLoop() {
   const world = useWorld();
   const [, getInput] = useKeyboardControls<KeyboardControlType>();
+  const accDelta = useRef(0);
 
-  useFrame((_, delta) => {
-    const input = getInput();
+  useFrame(({ gl, scene, camera }, delta) => {
+    accDelta.current += delta;
 
-    updateElapsedTime(world, delta);
+    if (accDelta.current > 1 / FPS) {
+      const input = getInput();
+      const delta = accDelta.current;
 
-    pollPlayerInput(world, input);
-    updateInteractionMoveInput();
-    applyCharacterInputToVelocity(world);
-    syncControllerAndVisualPosition(world);
-    syncVisualPositionAndMesh(world);
+      updateElapsedTime(world, delta);
 
-    addJumpBuffer(world);
-    doJump(world);
-    freeJumpBuffer(world);
+      pollPlayerInput(world, input);
+      updateInteractionMoveInput();
+      applyCharacterInputToVelocity(world);
+      syncControllerAndVisualPosition(world);
+      syncVisualPositionAndMesh(world);
 
-    playIdleAnim();
-    playWalkAnim();
-    playBattleStartAnim();
-    playRhythmAnim();
+      addJumpBuffer(world);
+      doJump(world);
+      freeJumpBuffer(world);
 
-    tickSpriteAnim(world);
-    applySpriteAnim(world);
-    updateFacingDirection();
-    applyFacingDirection();
+      playIdleAnim();
+      playWalkAnim();
+      playBattleStartAnim();
+      playRhythmAnim();
 
-    updateInteractLineAnimation(world, delta);
-    updateInteractionCamera(delta);
-    syncCameraAndBattleView();
-    syncHealthBarView();
+      tickSpriteAnim(world);
+      applySpriteAnim(world);
+      updateFacingDirection();
+      applyFacingDirection();
 
-    scrollNotes(delta);
-    updateNoteViews();
-    handleRhythmTurn();
-  });
+      updateInteractLineAnimation(world, delta);
+      updateInteractionCamera(delta);
+      syncCameraAndBattleView();
+
+      scrollNotes(delta);
+      updateNoteViews();
+      handleRhythmTurn();
+
+      gl.render(scene, camera);
+      accDelta.current = 0;
+    }
+  }, 1);
 
   return <></>;
 }

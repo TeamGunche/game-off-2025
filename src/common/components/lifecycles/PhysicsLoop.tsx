@@ -6,6 +6,7 @@ import { updateCamera } from "@/common/systems/physics/updateCamera.ts";
 import useBeforePhysicsStep from "@/common/hooks/physics/useBeforePhysicsStep.tsx";
 import { updateInteractionFocus } from "@/common/systems/physics/updateInteractionFocus";
 import { updateInteractionPos } from "@/common/systems/physics/updateInteractionPos";
+import { syncHealthBarView } from "@/common/systems/syncHealthBarView.ts";
 
 export default function PhysicsLoop() {
   const world = useWorld();
@@ -15,6 +16,7 @@ export default function PhysicsLoop() {
     applyCharacterVelocity(world);
     updateInteractionFocus(world);
     updateInteractionPos(world);
+    syncHealthBarView();
     updateCamera(world, physicsSettings.timestep);
   });
   return <></>;

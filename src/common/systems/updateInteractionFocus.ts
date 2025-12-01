@@ -1,7 +1,7 @@
-import { CharacterControllerRef } from "@/common/traits/CharacterControllerRef";
-import { InteractableRef } from "@/common/traits/InteractableRef";
-import { IsInteractionFocused } from "@/common/traits/IsInteractionFocused";
-import { IsPlayer } from "@/common/traits/IsPlayer";
+import { CharacterControllerRef } from "@/common/traits/CharacterControllerRef.ts";
+import { InteractableRef } from "@/common/traits/InteractableRef.ts";
+import { IsInteractionFocused } from "@/common/traits/IsInteractionFocused.ts";
+import { IsPlayer } from "@/common/traits/IsPlayer.ts";
 import type { Entity, World } from "koota";
 import { IsInteracting } from "@/common/traits/IsInteracting.ts";
 

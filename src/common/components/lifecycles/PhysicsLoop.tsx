@@ -1,12 +1,7 @@
 import { useWorld } from "koota/react";
 import { applyCharacterGravity } from "@/common/systems/physics/applyCharacterGravity.ts";
 import { applyCharacterVelocity } from "@/common/systems/physics/applyCharacterVelocity.ts";
-import { physicsSettings } from "@/common/defs/physicsSettings.ts";
-import { updateCamera } from "@/common/systems/physics/updateCamera.ts";
 import useBeforePhysicsStep from "@/common/hooks/physics/useBeforePhysicsStep.tsx";
-import { updateInteractionFocus } from "@/common/systems/physics/updateInteractionFocus";
-import { updateInteractionPos } from "@/common/systems/physics/updateInteractionPos";
-import { syncHealthBarView } from "@/common/systems/syncHealthBarView.ts";
 
 export default function PhysicsLoop() {
   const world = useWorld();
@@ -14,10 +9,6 @@ export default function PhysicsLoop() {
   useBeforePhysicsStep(() => {
     applyCharacterGravity(world);
     applyCharacterVelocity(world);
-    updateInteractionFocus(world);
-    updateInteractionPos(world);
-    syncHealthBarView();
-    updateCamera(world, physicsSettings.timestep);
   });
   return <></>;
 }

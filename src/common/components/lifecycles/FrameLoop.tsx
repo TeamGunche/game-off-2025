@@ -28,6 +28,10 @@ import { updateNoteViews } from "@/common/systems/updateNoteViews.ts";
 import { handleRhythmTurn } from "@/common/systems/handleRhythmTurn.ts";
 import { useRef } from "react";
 import { onHPZero } from "@/common/systems/onHPZero.ts";
+import { updateInteractionFocus } from "@/common/systems/updateInteractionFocus.ts";
+import { updateInteractionPos } from "@/common/systems/updateInteractionPos.ts";
+import { updateCamera } from "@/common/systems/updateCamera.ts";
+import { physicsSettings } from "@/common/defs/physicsSettings.ts";
 
 const FPS = 60;
 
@@ -74,6 +78,11 @@ export default function FrameLoop() {
       handleRhythmTurn();
 
       onHPZero();
+
+      updateInteractionFocus(world);
+      updateInteractionPos(world);
+      syncHealthBarView();
+      updateCamera(world, physicsSettings.timestep);
 
       gl.render(scene, camera);
       accDelta.current = 0;

@@ -73,9 +73,9 @@ export function PauseModal() {
       <ModalContent>
         <Title>Paused</Title>
 
+        <ModalButton onClick={resumeGame}>Resume</ModalButton>
         <ModalButton onClick={handleGoToMenu}>Main Menu</ModalButton>
         <ModalButton onClick={handleGoToSetting}>Setting</ModalButton>
-        <ModalButton onClick={resumeGame}>Resume</ModalButton>
 
       </ModalContent>
     </ModalOverlay>

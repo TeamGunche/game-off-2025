@@ -12,7 +12,7 @@ export const updateInteractionMoveInput = () => {
   world.query(IsPlayer, MoveInput, RootRef).updateEach(([, moveInput, player]) => {
     const dst = Math.abs(opponent.get(RootRef)!.position.x - player.position.x);
     const dir = opponent.get(RootRef)!.position.x > player.position.x ? -1 : 1;
-    const minDst = opponent.has(IsBattle) ? 6 : 1;
+    const minDst = opponent.has(IsBattle) ? 12 : 1;
 
     if (dst < minDst) {
       moveInput.x = dir;

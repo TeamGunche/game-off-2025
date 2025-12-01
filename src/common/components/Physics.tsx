@@ -3,6 +3,7 @@ import DebugPhysics from "@/common/components/DebugPhysics.tsx";
 const rapierPromise = import("@dimforge/rapier2d");
 import { type Vector2, type World } from "@dimforge/rapier2d";
 import { createContext, type Dispatch, memo, type ReactNode, type SetStateAction, use, useEffect, useMemo, useRef, useState } from "react";
+import { useApp } from "@/store/useAppStore.ts";
 
 export type RapierTicker = (world: World) => void;
 export type TickerMap = Record<number, RapierTicker>;
@@ -28,6 +29,7 @@ export default memo(function Physics(
     children?: ReactNode
   },
 ) {
+  const { isPaused } = useApp();
   const rapier = use(rapierPromise);
   const world = useMemo(() => new rapier.World(gravity), [rapier]);
   const ref = useRef<NodeJS.Timeout>(null);
@@ -38,6 +40,7 @@ export default memo(function Physics(
     if (ref.current) clearInterval(ref.current);
 
     ref.current = setInterval(() => {
+      if (isPaused) return;
       Object.values(tickers).forEach(ticker => ticker(world));
       world.step();
     }, timeStep * 1000);
@@ -45,7 +48,7 @@ export default memo(function Physics(
     return () => {
       if (ref.current) clearInterval(ref.current);
     };
-  }, [world, timeStep, tickers]);
+  }, [world, timeStep, tickers, isPaused]);
 
   return (
     <RapierContext value={{

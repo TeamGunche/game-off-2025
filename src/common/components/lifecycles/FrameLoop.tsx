@@ -32,6 +32,7 @@ import { updateInteractionFocus } from "@/common/systems/updateInteractionFocus.
 import { updateInteractionPos } from "@/common/systems/updateInteractionPos.ts";
 import { updateCamera } from "@/common/systems/updateCamera.ts";
 import { physicsSettings } from "@/common/defs/physicsSettings.ts";
+import { useApp } from "@/store/useAppStore.ts";
 
 const FPS = 60;
 
@@ -39,8 +40,11 @@ export default function FrameLoop() {
   const world = useWorld();
   const [, getInput] = useKeyboardControls<KeyboardControlType>();
   const accDelta = useRef(0);
+  const { isPaused } = useApp();
 
   useFrame(({ gl, scene, camera }, delta) => {
+    if (isPaused) return;
+
     accDelta.current += delta;
 
     if (accDelta.current > 1 / FPS) {
